@@ -88,6 +88,15 @@ span {
   border-radius:50%;
   border: 2px solid red;
 }
+.card-right-user{
+  align-items:center;
+  display: flex;
+  width:70%;
+  flex-direction: row;
+}
+.card-text-user {
+  margin-left:auto;
+}
 .card-right {
   display: flex;
   width:70%;
