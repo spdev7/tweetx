@@ -1,5 +1,5 @@
-##Small project build using
+## Small project build using
 
-#React
-#Redux
-#GraphQL
+### React
+### Redux
+### GraphQL
