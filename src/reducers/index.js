@@ -1,11 +1,15 @@
-import { REQUEST_AUTHENTICATION } from "../actions";
+// import { REQUEST_AUTHENTICATION } from "../actions";
 
-export default rootreducer = (state,action) => {
-  switch (action.type) {
-    case REQUEST_AUTHENTICATION:
-      return {
-        ...state,
-        isAuthenticated: true,
-      };
-  }
+const initialState = {
+  isAuthenticated: false,
 };
+const rootreducer = (state = initialState, action) => {
+  const newState = { ...state };
+
+  if(action.type == "REQUEST_AUTHENTICATION"){
+      newState.isAuthenticated = !newState.isAuthenticated
+  }
+  return newState;
+};
+
+export default rootreducer;
