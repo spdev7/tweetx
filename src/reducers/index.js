@@ -1,7 +1,7 @@
 // import { REQUEST_AUTHENTICATION } from "../actions";
 
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: true,
 };
 const rootreducer = (state = initialState, action) => {
   const newState = { ...state };
