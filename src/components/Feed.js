@@ -3,7 +3,7 @@ import Card from './Card';
 
 const Feed = () => {
     return (
-        <div>
+        <div className="feed_new">
             <Card/>
         </div>
     )
