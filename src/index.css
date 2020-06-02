@@ -111,6 +111,12 @@ span {
   word-break: break-all;
 }
 /* Feed-Card */
+.card-sub-text {
+  display:flex;
+}
+.card-sub-text div{
+  margin-right:1rem;
+}
 .feed_new {
  margin:0 auto;
  max-width:600px;
