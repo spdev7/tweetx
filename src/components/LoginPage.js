@@ -19,7 +19,6 @@ class LoginPage extends Component {
   render() {
     const { isAuthenticated, handleChange } = this.props;
     const { isLogin } = this.state;
-    console.log(isAuthenticated);
     return (
       <div>
         {isAuthenticated === false && (
@@ -78,7 +77,7 @@ class LoginPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isAuthenticated: state.isAuthenticated,
+    isAuthenticated: state.user.isAuthenticated,
   };
 };
 

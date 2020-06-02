@@ -3,8 +3,9 @@ import {request_auth } from '../actions';
 import Header from './Header';
 
 const mapStateToProps = (state) => {
+  console.log(state)
     return {
-      isAuthenticated: state.isAuthenticated,
+      isAuthenticated: state.user.isAuthenticated,
     };
   };
   

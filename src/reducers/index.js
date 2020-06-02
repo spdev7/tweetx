@@ -4,7 +4,7 @@ const initialState = {
   isAuthenticated: true,
   data: [{ id: 1, tweets: [], followers: 0, following: 0 }],
 };
-const rootreducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   const newState = { ...state };
 
   switch (action.type) {
@@ -12,9 +12,13 @@ const rootreducer = (state = initialState, action) => {
       newState.isAuthenticated = !newState.isAuthenticated;
     case 'ADD_TWEET':
       console.log('created project',action.tweet)
+    case 'ADD_TWEET_ERROR':
+      console.log('add tweet error',action.tweet)
+    default:
+      return newState;
   }
   return newState;
 };
 
 
-export default rootreducer;
+export default userReducer;
