@@ -73,7 +73,7 @@ span {
   display: flex;
   /* height: 100px; */
   border-radius: 10px;
-  border: 2px solid black;
+  /* border: 1px solid black; */
 }
 .card-profile {
   margin-right:1rem;
@@ -120,4 +120,11 @@ span {
 .feed_new {
  margin:0 auto;
  max-width:600px;
+}
+.nav-item {
+  flex:1;
+  text-align:center;
+}
+.nav {
+  margin-bottom: 3 rem;
 }

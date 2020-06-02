@@ -22,12 +22,12 @@ class LoginPage extends Component {
     console.log(isAuthenticated);
     return (
       <div>
-        {isAuthenticated == false && (
+        {isAuthenticated === false && (
           <div>
             <Button outline color="danger" size="lg" onClick={this.toggle}>
-              <span>{isLogin == false ? "Create Account" : "Login"}</span>
+              <span>{isLogin === false ? "Create Account" : "Login"}</span>
             </Button>
-            {isLogin == false ? (
+            {isLogin === false ? (
               <div>
                 <h1>Login</h1>
                 <InputGroup>

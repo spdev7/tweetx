@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink,Row,Col} from 'reactstrap';
 import classnames from 'classnames';
+import UserCard from './UserCard';
+import Card from './Card';
 
 const TabContainerNew = props => {
     const [activeTab, setActiveTab] = useState('1');
@@ -17,7 +19,7 @@ const TabContainerNew = props => {
             className={classnames({ active: activeTab === '1' })}
             onClick={() => { toggle('1'); }}
           >
-            Tab1
+            Posts
           </NavLink>
         </NavItem>
         <NavItem>
@@ -25,7 +27,7 @@ const TabContainerNew = props => {
             className={classnames({ active: activeTab === '2' })}
             onClick={() => { toggle('2'); }}
           >
-            Moar Tabs
+            Followers
           </NavLink>
         </NavItem>
         <NavItem>
@@ -33,7 +35,7 @@ const TabContainerNew = props => {
             className={classnames({ active: activeTab === '3' })}
             onClick={() => { toggle('3'); }}
           >
-            Moar Tabs
+            Following
           </NavLink>
         </NavItem>
       </Nav>
@@ -41,21 +43,21 @@ const TabContainerNew = props => {
         <TabPane tabId="1">
           <Row>
             <Col sm="12">
-              <h4>Tab 1 Contents</h4>
+                <UserCard/>
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="2">
           <Row>
             <Col sm="12">
-              <h4>Tab 2 Contents</h4>
+              <Card/>
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="3">
           <Row>
             <Col sm="12">
-              <h4>Tab 3 Contents</h4>
+              <UserCard/>
             </Col>
           </Row>
         </TabPane>

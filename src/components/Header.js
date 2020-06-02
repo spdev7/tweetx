@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import styled from "styled-components";
-
 class Header extends Component {
   render() {
-    const { isAuthenticated, handleChange } = this.props;
+    const { isAuthenticated} = this.props;
     return (
       <Router>
         <div className="header">
