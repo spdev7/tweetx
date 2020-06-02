@@ -9,7 +9,7 @@ const Card = () => {
       <div className="card-right">
         <div className="card-name">
           <div><h2>Arjun Reddy</h2></div>
-          <div><span>10 minutes</span></div>
+          <div style={{display:"flex",alignSelf:"flex-end"}}><span>10 minutes</span></div>
         </div>
         <div className="card-text">
         <span>Lorem Ipsum is simply dummy text of the printing and </span>

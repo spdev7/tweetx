@@ -1,6 +1,6 @@
 html,body {
   padding: 0px;
-  background-color:rgb(66, 64, 64);
+  /* background-color:rgb(66, 64, 64); */
   margin: 0px;
 }
 
@@ -106,7 +106,12 @@ span {
   display: flex;
   justify-content: space-between;
 }
-
+.card-name span {
+  font-size:0.7rem;
+}
+.card-text span {
+  font-size:1rem;
+}
 .card-text {
   word-break: break-all;
 }
@@ -127,4 +132,10 @@ span {
 }
 .nav {
   margin-bottom: 3 rem;
+}
+
+.feed-container {
+  padding:0 10%;
+  margin:1rem auto;
+  
 }

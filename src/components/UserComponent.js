@@ -1,9 +1,10 @@
 import React from 'react'
+import Card from './Card';
 
 const UserComponent = () => {
     return (
         <div>
-            <h4>sfdjp</h4>
+            <Card/>
         </div>
     )
 }

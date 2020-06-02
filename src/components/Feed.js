@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Card from './Card';
 import UserCard from './UserCard';
 import { InputGroup, Button,Input } from 'reactstrap';
@@ -9,10 +9,12 @@ const Write = () => {
     const [renderButton,setButton] = useState(false);
    
     const handleButton = () => setButton(true)
-    const handleRenderwrite = () => setRenderwrite(true)
+    const handleRenderwrite = () => {
+        setRenderwrite(true);
+        setButton(false)
+    }
     return (
-        <div>
-            {!renderwrite && (<div>
+        <div className="feed-container">
                 { !renderButton && (<Button onClick={handleButton}>Write</Button>)}
                 {renderButton && (<div>
                     <InputGroup>
@@ -22,10 +24,10 @@ const Write = () => {
                     </div>
                     </InputGroup>
                 </div>)}
-            </div>)}
         </div>
     )
 }
+
 const Feed = () => {
     return (
         <div className="feed_new">
