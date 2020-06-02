@@ -6,3 +6,9 @@ export const request_auth = () => {
         type: REQUEST_AUTHENTICATION
     }
 };
+
+export const add_post = (tweet) => {
+    return (dispatch,getState) => {
+        dispatch({type:'ADD_TWEET',tweet})
+    }
+}

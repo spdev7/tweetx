@@ -1,41 +1,23 @@
-import React, { useState,useEffect } from 'react'
+import {connect } from 'react-redux'
+import {add_post} from '../actions'
+import React from 'react'
+import Write from './Write'
 import Card from './Card';
 import UserCard from './UserCard';
-import { InputGroup, Button,Input } from 'reactstrap';
-
-const Write = () => {
-
-    const [renderwrite,setRenderwrite] = useState(false);
-    const [renderButton,setButton] = useState(false);
-   
-    const handleButton = () => setButton(true)
-    const handleRenderwrite = () => {
-        setRenderwrite(true);
-        setButton(false)
-    }
-    return (
-        <div className="feed-container">
-                { !renderButton && (<Button onClick={handleButton}>Write</Button>)}
-                {renderButton && (<div>
-                    <InputGroup>
-                    <div>
-                    <Input placeholder="Enter your tweet" size="lg"/>
-                    <Button style={{float:"right"}} onClick={handleRenderwrite}>Submit</Button>
-                    </div>
-                    </InputGroup>
-                </div>)}
-        </div>
-    )
-}
 
 const Feed = () => {
     return (
         <div className="feed_new">
-            <Write/>
+            <Write />
             {/* <Card/>
             <UserCard/> */}
         </div>
     )
 }
 
-export default Feed
+const mapDispatchToProps = (dispatch) => {
+    return {
+        add_post: (tweet) => dispatch(add_post(tweet)),
+    }
+}
+export default connect(null,mapDispatchToProps)(Write)
