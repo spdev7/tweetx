@@ -14,7 +14,8 @@ const UserCard = (props) => {
       setActive(false);
     }
   };
-
+  console.log(props)
+  const { name,following} = props.data;
   return (
     <div className="card_new">
       <div className="card-profile">
@@ -27,7 +28,7 @@ const UserCard = (props) => {
           }
         >
           <div>
-            <h2>Arjun Reddy</h2>
+        <h2>{name}</h2>
           </div>
           {props.page === "profile" && (
             <div className="card-sub-text">

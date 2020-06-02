@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
 html,body {
   padding: 0px;
   /* background-color:rgb(66, 64, 64); */
@@ -26,12 +28,17 @@ span {
   display:flex;
   align-items: center;
 }
+.header-left h2 {
+  color:palevioletred;
+  font-family: 'Berkshire Swash', cursive;
+}
 .header-right {
   height: 100%;
   display:flex;
   margin-left: auto;
   margin-right: 1.5%;
   align-items: center;
+  box-shadow: inset 0 -15px 10px -10px palevioletred;
 }
 
 .header-right span{
@@ -107,7 +114,7 @@ span {
   justify-content: space-between;
 }
 .card-name span {
-  font-size:0.7rem;
+  font-size:0.9rem;
 }
 .card-text span {
   font-size:1rem;

@@ -1,6 +1,9 @@
 import React from "react";
 
-const Card = () => {
+const Card = (props) => {
+  console.log(props)
+  const {name,tweet,time} = props.data
+
   return (
     <div className="card_new">
       <div className="card-profile">
@@ -8,11 +11,11 @@ const Card = () => {
       </div>
       <div className="card-right">
         <div className="card-name">
-          <div><h2>Arjun Reddy</h2></div>
-          <div style={{display:"flex",alignSelf:"flex-end"}}><span>10 minutes</span></div>
+        <div><span style={{fontSize:"1.2rem"}}>{name}</span></div>
+        <div style={{display:"flex",alignSelf:"flex-end"}}><span style={{fontSize:"0.7rem",opacity:0.5}}>{time} minutes</span></div>
         </div>
         <div className="card-text">
-        <span>Lorem Ipsum is simply dummy text of the printing and </span>
+        <span>{tweet}</span>
         </div>
       </div>
     </div>
@@ -20,3 +23,4 @@ const Card = () => {
 };
 
 export default Card;
+  

@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { InputGroup, Button,Input } from 'reactstrap';
+import { connect } from 'react-redux'
+import {add_post} from '../actions'
 
 const Write = (props) => {
     // const [renderwrite,setRenderwrite] = useState(false);
@@ -17,6 +19,7 @@ const Write = (props) => {
     const handleSubmit = (e) => {
         props.add_post(input);
     }
+
     return (
         <div className="feed-container">
                 { !renderButton && (<Button color="danger" onClick={handleButton}>Write</Button>)}
@@ -32,4 +35,10 @@ const Write = (props) => {
     )
 }
 
-export default Write;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        add_post: (tweet) => dispatch(add_post(tweet)),
+    }
+}
+
+export default connect(null,mapDispatchToProps)(Write)

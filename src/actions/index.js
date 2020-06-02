@@ -11,9 +11,10 @@ export const add_post = (tweet) => {
     return (dispatch,getState,{getFirestore}) => {
         const sampleTweet = {
             tweet:tweet,
-            name:'Saurav',
+            name:'Gauri',
             id:1,
-            created: new Date(),
+            time: new Date(),
+            follower:['hello']
         }
         const firestore = getFirestore();
         firestore.collection('users').add(sampleTweet)   

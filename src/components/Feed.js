@@ -1,23 +1,41 @@
-import {connect } from 'react-redux'
-import {add_post} from '../actions'
+import {compose} from 'redux'
 import React from 'react'
 import Write from './Write'
 import Card from './Card';
 import UserCard from './UserCard';
+import {firestoreConnect} from 'react-redux-firebase'
+import { connect } from 'react-redux'
 
-const Feed = () => {
+const Feed = (props) => {
+    const {post} = props;
     return (
         <div className="feed_new">
             <Write />
-            {/* <Card/>
+            {post.map((item) => <Card data={item}/>)}
+            {/* 
             <UserCard/> */}
         </div>
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
+// const mapStateToProps = (state) => {
+//     return {
+//         users: state.firestore.ordered.users
+//     }
+// }
+
+
+// export default compose( 
+//     connect(mapStateToProps),
+//     firestoreConnect([
+//         {
+//             collections:'users'
+//         }
+//     ])
+// )(Feed)
+const mapStateToProps = (state) => {
     return {
-        add_post: (tweet) => dispatch(add_post(tweet)),
+        post: state.user.post
     }
 }
-export default connect(null,mapDispatchToProps)(Write)
+export default connect(mapStateToProps,null)(Feed)

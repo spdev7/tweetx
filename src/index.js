@@ -37,7 +37,7 @@ const middleware = [
 
 const store = createStore(
   rootreducer,
-  compose(
+  composeEnhancers(
    // pass in firebase instance instead of config
     reduxFirestore(firebase), // <- needed if using firestore
     applyMiddleware(...middleware) // to add other middleware

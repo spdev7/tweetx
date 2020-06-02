@@ -7,7 +7,7 @@ class Header extends Component {
     return (
         <div className="header">
           <div className="header-left">
-            <span>TWEETX</span>
+            <h2><strong>Tweetx</strong></h2>
           </div>
           {isAuthenticated && (
             <div className="header-right">

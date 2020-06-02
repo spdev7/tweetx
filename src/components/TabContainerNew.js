@@ -3,14 +3,15 @@ import { TabContent, TabPane, Nav, NavItem, NavLink,Row,Col} from 'reactstrap';
 import classnames from 'classnames';
 import UserCard from './UserCard';
 import Card from './Card';
+import {connect} from 'react-redux'
 
-const TabContainerNew = props => {
+const TabContainerNew = (props) => {
     const [activeTab, setActiveTab] = useState('1');
 
   const toggle = tab => {
     if(activeTab !== tab) setActiveTab(tab);
   }
-
+  const {post} = props;
     return (
         <div>
       <Nav tabs>
@@ -43,21 +44,21 @@ const TabContainerNew = props => {
         <TabPane tabId="1">
           <Row>
             <Col sm="12">
-                <UserCard/>
+            {post.map((item) => <Card data={item}/>)}
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="2">
           <Row>
             <Col sm="12">
-              <Card/>
+            {post.map((item) => <UserCard data={item}/>)}
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="3">
           <Row>
             <Col sm="12">
-              <UserCard/>
+            {post.map((item) => <UserCard data={item}/>)}
             </Col>
           </Row>
         </TabPane>
@@ -66,5 +67,10 @@ const TabContainerNew = props => {
     )
 }
 
+const mapStateToProps = (state) => {
+  return {
+      post: state.user.post
+  }
+}
 
-export default TabContainerNew
+export default connect(mapStateToProps,null)(TabContainerNew)
