@@ -1,5 +1,3 @@
-
-import firebase from '../components/config/config'
 const REQUEST_AUTHENTICATION = 'REQUEST_AUTHENTICATION';
 
 
@@ -9,16 +7,16 @@ export const request_auth = () => {
     }
 };
 
-
 export const add_post = (tweet) => {
-    return (dispatch,getState) => {
+    return (dispatch,getState,{getFirestore}) => {
         const sampleTweet = {
-            ...tweet,
+            tweet:tweet,
             name:'Saurav',
             id:1,
             created: new Date(),
         }
-        firebase.firestore().collection('users').push(sampleTweet)   
+        const firestore = getFirestore();
+        firestore.collection('users').add(sampleTweet)   
         .then(() => {
             dispatch({type:'ADD_TWEET',tweet})
         }).catch(err => {

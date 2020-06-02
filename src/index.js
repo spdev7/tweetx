@@ -14,6 +14,7 @@ import {
 import {
   createFirestoreInstance,
   getFirestore,
+  reduxFirestore
 } from "redux-firestore";
 
 import firebase from './components/config/config'
@@ -29,15 +30,19 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
 
-const middlewares = [
-  thunk.withExtraArgument(getFirebase,getFirestore,useFirebase)
+const middleware = [
+  thunk.withExtraArgument({getFirebase,useFirebase,getFirestore}),
+  
 ]
 
 const store = createStore(
   rootreducer,
-  composeEnhancers(
-    applyMiddleware(...middlewares)
+  compose(
+   // pass in firebase instance instead of config
+    reduxFirestore(firebase), // <- needed if using firestore
+    applyMiddleware(...middleware) // to add other middleware
   )
+
 );
 
 
