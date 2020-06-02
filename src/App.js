@@ -12,7 +12,7 @@ const App = () => {
     <Router>
     <div>
       <Header />
-      <LoginPage />
+      <Route exact path="/" component={LoginPage} />
       <Route path="/feed" component={Feed} />
       <Route path="/user" component={UserComponent} />
       <Route path="/profile" component={ProfilePage}/>

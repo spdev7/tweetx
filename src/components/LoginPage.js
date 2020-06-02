@@ -20,20 +20,20 @@ class LoginPage extends Component {
     const { isAuthenticated, handleChange } = this.props;
     const { isLogin } = this.state;
     return (
-      <div>
+      <div className="loginPageContainer">
         {isAuthenticated === false && (
           <div>
-            <Button outline color="danger" size="lg" onClick={this.toggle}>
-              <span>{isLogin === false ? "Create Account" : "Login"}</span>
+            <Button style={{marginBottom:"0.5rem"}} outline color="danger" size="lg" onClick={this.toggle}>
+              <span style={{marginBottom:"0.5rem"}}>{isLogin === false ? "Create Account" : "Login"}</span>
             </Button>
             {isLogin === false ? (
               <div>
-                <h1>Login</h1>
+                <h2 style={{marginBottom:"0.5rem"}} className="text-danger">Login</h2>
                 <InputGroup>
-                  <div>
+                  <div style={{marginBottom:"0.8rem"}}>
                     <Input placeholder="Email" size="lg" />
                   </div>
-                  <div>
+                  <div style={{marginBottom:"0.8rem"}}>
                     <Input placeholder="Password" size="lg" />
                   </div>
                 </InputGroup>
@@ -46,22 +46,23 @@ class LoginPage extends Component {
               </div>
             ) : (
               <div>
-                <h1>Create Account</h1>
+                <h2 style={{marginBottom:"0.5rem"}} className="text-danger">Create Account</h2>
                 <InputGroup>
-                  <div>
+                  <div style={{marginBottom:"0.8rem"}}>
                     <Input placeholder="Name" size="lg" />
                   </div>
-                  <div>
+                  <div style={{marginBottom:"0.8rem"}}>
                     <Input placeholder="Email" size="lg" />
                   </div>
-                  <div>
+                  <div style={{marginBottom:"0.8rem"}}>
                     <Input placeholder="Password" size="lg" />
                   </div>
-                  <div>
+                  <div style={{marginBottom:"0.8rem"}}>
                     <Input placeholder="Confirm Password" size="lg" />
                   </div>
                 </InputGroup>
                 <div className="login-button">
+                  <div></div>
                   <Button color="danger" onClick={this.toggle}>
                     Create Account
                   </Button>

@@ -10,18 +10,26 @@ span {
   font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
 }
+
+.headering {
+  color:grey;
+}
+.heading:hover {
+  color:#dc3545  !important;
+}
+
 @media screen and (max-width: 600px) {
   header span {
     font-size: 1rem;
   }
 }
 
-
 .header {
   display:flex;
   margin: 0 auto;
   height: 3.5rem;
   padding: 1% 10%;
+  box-shadow: inset 0 -15px 10px -10px palevioletred;
 }
 
 .header-left {
@@ -38,11 +46,11 @@ span {
   margin-left: auto;
   margin-right: 1.5%;
   align-items: center;
-  box-shadow: inset 0 -15px 10px -10px palevioletred;
+} 
+.header-right a {
+  text-decoration: none !important;
 }
-
 .header-right span{
-  color:black !important;
   margin: 1em;
   padding: 0.25em 1em;
 }
@@ -51,12 +59,14 @@ span {
   .header{
     flex-direction: column;
     padding: 2% 10%;
+    height:6rem;
   }
   .header-left {
     height: 100%;
     align-self:center;
   }
   .header-right {
+    margin-right:0;
     margin-left:0;
     justify-content: space-evenly;
   }
@@ -72,6 +82,12 @@ span {
   justify-content: space-between;
 }
 
+.loginPageContainer {
+  padding:0 10%;
+  margin-top:2rem !important;
+  max-width:750px;
+  margin:0 auto;
+}
 /* Card css */
 
 .card_new {
