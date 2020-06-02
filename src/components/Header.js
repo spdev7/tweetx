@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link} from "react-router-dom";
 class Header extends Component {
   render() {
     const { isAuthenticated} = this.props;
     return (
-      <Router>
         <div className="header">
           <div className="header-left">
             <span>TWEETX</span>
@@ -29,7 +28,6 @@ class Header extends Component {
             </div>
           )}
         </div>
-      </Router>
     );
   }
 }

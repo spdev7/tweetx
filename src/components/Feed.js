@@ -16,8 +16,10 @@ const Write = () => {
                 { !renderButton && (<Button onClick={handleButton}>Write</Button>)}
                 {renderButton && (<div>
                     <InputGroup>
-                    <Input placeholder="Enter your tweet"/>
-                    <Button onClick={handleRenderwrite}>Submit</Button>
+                    <div>
+                    <Input placeholder="Enter your tweet" size="lg"/>
+                    <Button style={{float:"right"}} onClick={handleRenderwrite}>Submit</Button>
+                    </div>
                     </InputGroup>
                 </div>)}
             </div>)}
