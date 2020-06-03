@@ -8,7 +8,7 @@ const UserComponent = (props) => {
 
     return (
         <div style={{maxWidth:"600px",margin:"0 auto"}}>
-           {post.map((item) => <UserCard data={item} />)}
+           {post.map((item) => <UserCard  page={"user"} data={item} />)}
         </div>
     )
 }

@@ -28,7 +28,8 @@ const UserCard = (props) => {
           }
         >
           <div>
-        <h3>{name}</h3>
+        {props.page === "user" && <span><strong>{name}</strong></span>}
+        {props.page !== "user" && <h3>{name}</h3>}
           </div>
           {props.page === "profile" && (
             <div className="card-sub-text">

@@ -51,14 +51,14 @@ const TabContainerNew = (props) => {
         <TabPane tabId="2">
           <Row>
             <Col sm="12">
-            {post.map((item) => <UserCard data={item}/>)}
+            {post.map((item) => <UserCard  page={"user"} data={item}/>)}
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="3">
           <Row>
             <Col sm="12">
-            {post.map((item) => <UserCard data={item}/>)}
+            {post.map((item) => <UserCard page={"user"} data={item}/>)}
             </Col>
           </Row>
         </TabPane>

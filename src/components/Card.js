@@ -11,7 +11,7 @@ const Card = (props) => {
       </div>
       <div className="card-right">
         <div className="card-name">
-        <div><span style={{fontSize:"1.2rem"}}>{name}</span></div>
+        <div><span style={{fontSize:"1.2rem"}}><strong>{name}</strong></span></div>
         <div style={{display:"flex",alignSelf:"flex-end"}}><span style={{fontSize:"0.7rem",opacity:0.5}}>{time} minutes</span></div>
         </div>
         <div className="card-text">

@@ -26,7 +26,7 @@ const Write = (props) => {
                 {renderButton && (<div>
                     <InputGroup>
                     <div>
-                    <Input name="input" placeholder="Enter your tweet" size="lg" onChange={handleInput}/>
+                    <Input style={{marginBottom:"0.8rem"}} name="input" placeholder="Enter your tweet" size="lg" onChange={handleInput}/>
                     <Button color="danger" style={{float:"right"}} onClick={() => {handleButton();handleSubmit()}}>Submit</Button>
                     </div>
                     </InputGroup>
