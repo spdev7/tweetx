@@ -6,57 +6,75 @@ const initialState = {
     {
       id: 1,
       name: "Saurav Prakash",
-      tweet: "Finally corona virus is over and Now can go for a walk",
+      tweet: "Revisiting 2020 in future would be interesting",
       time: "12",
       followers: [],
     },
     {
       id: 1,
       name: "Saurav Prakash",
-      tweet: "Finally corona virus is over and Now can go for a walk",
-      time: "12",
-      followers: [],
-    }
-  ],
-  xpost: [
-    {
-      id: 1,
-      name: "Ramesh",
-      tweet: "Finally corona virus is over and Now can go for a walk",
+      tweet: "Latest SpaceX launch was amazing",
       time: "12",
       followers: [],
     },
-    {
-      id: 1,
-      name: "Vimesh",
-      tweet: "Finally corona virus is over and Now can go for a walk",
-      time: "12",
-      followers: [],
-    }
-  ]
-,
+  ],
   userpost: [
     {
       id: 1,
-      name: "Saurav Prakash",
+      name: "Obama",
       following: false,
-      totaltweets: 3,
+      totaltweets: 2,
       tweets: [
-        { id:1,
-          name: "Saurav Prakash",
+        {
+          id: 1,
+          totaltweets: 2,
+          name: "Obama",
           time: "12",
-          tweet: "lsdkajfjljejewkfj;lkwessadflkneagnw" 
+          tweet:
+            "Thank you for everything. My last ask is the same as my first. I'm asking you to believe",
         },
-        { id:2,name: "Saurav Prakash",time: 15, tweet: "alrekgjaljlkejlgjaggj" },
-        { id:3,name: "Saurav Prakash",time: 13, tweet: "agkjwrkjdnsadalwneks" },
+        { id: 2,totaltweets: 2, name: "Obama", time: 15, tweet: "Four more years" },
       ],
     },
+    {
+      id:2,
+      name:"mrBeast",
+      following:false,
+      totaltweets:1,
+      tweets:[
+        {
+          id:1,
+          totaltweets:1,
+          name:"mrBeast",
+          time:'14',
+          tweet:
+          "I’m going to give 100 random people who retweet this $100. Normally I’d give one person $10,000 but I want to give you guys better odds of winning :)"
+        }
+      ]
+    },
+    {
+      id:3,
+      name:"ellen",
+      following:false,
+      totaltweets:1,
+      tweets:[
+        {
+          id:1,
+          totaltweets:1,
+          name:"ellen",
+          time:'14',
+          tweet:
+          "If only Bradley's arm was longer. Best photo ever. #oscars "
+        }
+      ]
+    }
   ],
+  xpost:[],
 };
 
 const userReducer = (state = initialState, action) => {
   const newState = { ...state };
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case "REQUEST_AUTHENTICATION":
       newState.isAuthenticated = !newState.isAuthenticated;
@@ -64,30 +82,21 @@ const userReducer = (state = initialState, action) => {
       newState.post = [
         ...newState.post,
         {
-          id: '5',
+          id: "5",
           tweet: action.tweet,
-          name:'Gaju',
-          time:[],
-          followers:[],
-        }
-      ]
+          name: "Saurav Prakash",
+          time: new Date().getMinutes(),
+          followers: [],
+        },
+      ];
       console.log("created project", action.tweet);
     case "ADD_TWEET_ERROR":
       console.log("add tweet error", action.tweet);
     case "FOLLOW_USER":
-      newState.userpost = [
-        ...newState.userpost,
-        {
-          id: 1,
-      name: "Saurav Prakash",
-      following: true,
-      totaltweets: 3,
-      tweets: [
-        { name: "Saurav Prakash",time: 12, tweet: "lsdkajfjljejewkfj;lkwessadflkneagnw" },
-        { name: "Saurav Prakash",time: 15, tweet: "alrekgjaljlkejlgjaggj" },
-        { name: "Saurav Prakash",time: 13, tweet: "agkjwrkjdnsadalwneks" },
-      ]
-        }
+      const h1 = newState.userpost.find((x) => x.name == action.name)
+      newState.xpost = [
+        ...newState.xpost,
+        h1
       ]
     default:
       return newState;

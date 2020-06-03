@@ -7,13 +7,13 @@ import { firestoreConnect } from "react-redux-firebase";
 import { connect } from "react-redux";
 
 const Feed = (props) => {
-  const { userpost } = props;
+  const { xpost } = props;
 
   return (
     <div className="feed_new">
       <Write />
       {
-          userpost.map((item) => {
+          xpost && xpost.map((item) => {
           return  item && item.tweets && item.tweets.length > 0 && item.tweets.map((data) => <Card data={data}/>)}        
            )}
       {/* xpost.map((item) => <Card data={item}/>) */}
@@ -37,7 +37,7 @@ const Feed = (props) => {
 // )(Feed)
 const mapStateToProps = (state) => {
   return {
-    userpost: state.user.userpost,
+    xpost: state.user.xpost,
   };
 };
 export default connect(mapStateToProps, null)(Feed);

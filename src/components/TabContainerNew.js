@@ -11,7 +11,7 @@ const TabContainerNew = (props) => {
   const toggle = tab => {
     if(activeTab !== tab) setActiveTab(tab);
   }
-  const {post} = props;
+  const {post,xpost} = props;
     return (
         <div>
       <Nav tabs>
@@ -58,7 +58,7 @@ const TabContainerNew = (props) => {
         <TabPane tabId="3">
           <Row>
             <Col sm="12">
-            {post.map((item) => <UserCard page={"user"} following={"following"} data={item}/>)}
+            {xpost.map((item) => <UserCard page={"user"} following={"following"} data={item}/>)}
             </Col>
           </Row>
         </TabPane>
@@ -69,7 +69,8 @@ const TabContainerNew = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-      post: state.user.post
+      post: state.user.post,
+      xpost:state.user.post
   }
 }
 

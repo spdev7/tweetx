@@ -32,8 +32,9 @@ export const add_post = (tweet) => {
         tweet:tweet
     }
 }
-export const follow_user = () => {
+export const follow_user = (name) => {
     return {
-        type:"FOLLOW_USER"
+        type:"FOLLOW_USER",
+        name:name
     }
 }

@@ -4,17 +4,21 @@ import UserCard from './UserCard';
 import {connect} from 'react-redux'
 
 const UserComponent = (props) => {
-    const { post } = props;
+    const { userpost } = props;
     return (
         <div style={{maxWidth:"600px",margin:"0 auto"}}>
-           {post.map((item) => <UserCard  page={"user"} data={item} />)}
+           {
+          userpost.map((item) => {
+          return  item && item.tweets && item.tweets.length > 0 && item.tweets.map((data) => <UserCard page={"user"} data={data}/>)}        
+           )}
+      {/* xpost.map((item) => <Card data={item}/>) */}
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        post: state.user.post
+        userpost: state.user.userpost
     }
 }
 

@@ -7,7 +7,7 @@ const UserCard = (props) => {
   const [active, setActive] = useState(false);
   const [follow, setFollowing] = useState("Follow");
 
-  const handleFollow = () => {
+  const handleFollow = (e) => {
     if (active == false) {
       setFollowing("Following");
       setActive(true);
@@ -15,9 +15,9 @@ const UserCard = (props) => {
       setFollowing("Follow");
       setActive(false);
     }
-    props.follow_user();
+    props.follow_user(props.data.name);
   };
-  const { name,following} = props.data;
+  const { name,totaltweets} = props.data;
   return (
     <div className="card_new">
       <div className="card-profile">
@@ -31,7 +31,7 @@ const UserCard = (props) => {
         >
           <div style={{display:"flex",flexDirection:"column"}}>
         {props.page === "user" && <span><strong>{name}</strong></span>}
-        {props.page === "user" && <span>3 posts</span>}
+        {props.page === "user" && <span>{totaltweets} posts</span>}
         {props.page !== "user" && <h3>{name}</h3>}
           </div>
           {props.page === "profile" && (
@@ -56,7 +56,7 @@ const UserCard = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    follow_user:() => dispatch(follow_user()),
+    follow_user: (name) => dispatch(follow_user(name)),
   }
 }
 export default connect(null,mapDispatchToProps)(UserCard);
