@@ -56,10 +56,10 @@ const TabContainerNew = (props) => {
             {xpost[0] == null ? xpost.shift():''}
             {
           xpost.length == 0 || xpost[xpost.length-1] == null && (<div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column ",marginTop:'1rem'}}>
-          <div><h3 style={{color:"#e83e8c"}}>0 Following</h3></div>
+          <div><h3 style={{color:"#e83e8c"}}>0 Followers</h3></div>
         </div>)
       }
-            {xpost[xpost.length-1] != null && xpost && xpost.map((item1) => <UserCard page={"user"} data={item1}/>)}
+            {xpost && xpost.map((item1) => <UserCard page={"user"} data={item1}/>)}
             </Col>
           </Row>
         </TabPane>
@@ -72,7 +72,7 @@ const TabContainerNew = (props) => {
           <div><h3 style={{color:"#e83e8c"}}>0 Following</h3></div>
         </div>)
       }
-            {xpost[xpost.length-1] != null && xpost && xpost.map((item1) => <UserCard page={"user"} following={"following"} data={item1}/>)}
+            {xpost && xpost.map((item1) => <UserCard page={"user"} following={"following"} data={item1}/>)}
             </Col>
           </Row>
         </TabPane>
