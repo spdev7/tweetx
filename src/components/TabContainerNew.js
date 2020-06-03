@@ -58,7 +58,7 @@ const TabContainerNew = (props) => {
         <TabPane tabId="3">
           <Row>
             <Col sm="12">
-            {xpost.map((item) => <UserCard page={"user"} following={"following"} data={item}/>)}
+            {xpost.map((item1) => <UserCard page={"user"} following={"following"} data={item1}/>)}
             </Col>
           </Row>
         </TabPane>
