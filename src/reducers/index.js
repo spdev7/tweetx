@@ -89,7 +89,7 @@ const userReducer = (state = initialState, action) => {
           followers: [],
         },
       ];
-      console.log("created project", action.tweet);
+      return newState;
     case "ADD_TWEET_ERROR":
       console.log("add tweet error", action.tweet);
     case "FOLLOW_USER":

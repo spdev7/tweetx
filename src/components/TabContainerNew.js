@@ -12,6 +12,8 @@ const TabContainerNew = (props) => {
     if(activeTab !== tab) setActiveTab(tab);
   }
   const {post,xpost} = props;
+
+  console.log(xpost)
     return (
         <div>
       <Nav tabs>
@@ -51,14 +53,26 @@ const TabContainerNew = (props) => {
         <TabPane tabId="2">
           <Row>
             <Col sm="12">
-            {post.map((item) => <UserCard  page={"user"} data={item}/>)}
+            {xpost[0] == null ? xpost.shift():''}
+            {
+          xpost.length == 0 || xpost[xpost.length-1] == null && (<div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column ",marginTop:'1rem'}}>
+          <div><h3 style={{color:"#e83e8c"}}>0 Following</h3></div>
+        </div>)
+      }
+            {xpost[xpost.length-1] != null && xpost && xpost.map((item1) => <UserCard page={"user"} data={item1}/>)}
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="3">
           <Row>
             <Col sm="12">
-            {xpost.map((item1) => <UserCard page={"user"} following={"following"} data={item1}/>)}
+              {xpost[0] == null ? xpost.shift():''}
+            {
+          xpost.length == 0 || xpost[xpost.length-1] == null && (<div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column ",marginTop:'1rem'}}>
+          <div><h3 style={{color:"#e83e8c"}}>0 Following</h3></div>
+        </div>)
+      }
+            {xpost[xpost.length-1] != null && xpost && xpost.map((item1) => <UserCard page={"user"} following={"following"} data={item1}/>)}
             </Col>
           </Row>
         </TabPane>
@@ -70,7 +84,7 @@ const TabContainerNew = (props) => {
 const mapStateToProps = (state) => {
   return {
       post: state.user.post,
-      xpost:state.user.post
+      xpost:state.user.xpost
   }
 }
 

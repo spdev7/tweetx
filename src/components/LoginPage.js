@@ -33,6 +33,7 @@ class LoginPage extends Component {
     const { isLogin } = this.state;
     return (
       <div className="loginPageContainer">
+        {isAuthenticated == true && this.props.history.push('/feed')}
         {isAuthenticated === false && (
           <div>
             <Button style={{marginBottom:"0.5rem"}} outline color="danger" size="lg" onClick={this.toggle}>
