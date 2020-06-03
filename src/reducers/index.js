@@ -1,7 +1,7 @@
 // import { REQUEST_AUTHENTICATION } from "../actions";
 
 const initialState = {
-  isAuthenticated: true,
+  isAuthenticated: false,
   post: [
     {
       id: 1,
@@ -56,11 +56,21 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   const newState = { ...state };
-
+  console.log(action)
   switch (action.type) {
     case "REQUEST_AUTHENTICATION":
       newState.isAuthenticated = !newState.isAuthenticated;
     case "ADD_TWEET":
+      newState.post = [
+        ...newState.post,
+        {
+          id: '5',
+          tweet: action.tweet,
+          name:'Gaju',
+          time:[],
+          followers:[],
+        }
+      ]
       console.log("created project", action.tweet);
     case "ADD_TWEET_ERROR":
       console.log("add tweet error", action.tweet);

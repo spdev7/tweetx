@@ -35,8 +35,30 @@ const middleware = [
   
 ]
 
+function saveToLocalStorage(state) {
+  try {
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem('state',serializedState)
+  } catch(e) {
+    console.log(e)
+  }
+}
+
+function loadFromLocalStorage(state) {
+  try {
+    const serializedState = localStorage.getItem('state')
+    if(serializedState === null) return undefined
+    return JSON.parse(serializedState)
+  } catch(e) {
+    console.log(e)
+    return undefined
+  }
+}
+const persistedState = loadFromLocalStorage()
+
 const store = createStore(
   rootreducer,
+  persistedState,
   composeEnhancers(
    // pass in firebase instance instead of config
     reduxFirestore(firebase), // <- needed if using firestore
@@ -45,6 +67,7 @@ const store = createStore(
 
 );
 
+store.subscribe(() => saveToLocalStorage(store.getState()))
 
 const rrfProps = {
   firebase,

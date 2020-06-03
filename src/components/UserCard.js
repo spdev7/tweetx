@@ -45,7 +45,7 @@ const UserCard = (props) => {
         {props.page != "profile" && (
           <div className="card-text-user">
             <Button outline color="danger" onClick={handleFollow}>
-              {follow}
+              {props.following === "following" ? "Following" : follow}
             </Button>
           </div>
         )}

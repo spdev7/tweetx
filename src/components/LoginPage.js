@@ -8,6 +8,10 @@ class LoginPage extends Component {
     super(props);
     this.state = {
       isLogin: false,
+      name:'',
+      email:'',
+      password:'',
+      confirmpassword:''
     };
   }
 
@@ -15,7 +19,15 @@ class LoginPage extends Component {
     this.setState({
       isLogin: !this.state.isLogin,
     });
-  };
+  }
+  handleInput = (event) => {
+    this.setState({
+      [event.target.name] : event.target.value
+    })
+  }
+  setPath = (e) => {
+    this.props.history.push('/feed')
+  }
   render() {
     const { isAuthenticated, handleChange } = this.props;
     const { isLogin } = this.state;
@@ -31,15 +43,15 @@ class LoginPage extends Component {
                 <h2 style={{marginBottom:"0.5rem"}} className="text-danger">Login</h2>
                 <InputGroup>
                   <div style={{marginBottom:"0.8rem"}}>
-                    <Input placeholder="Email" size="lg" />
+                    <Input  placeholder="Email" size="lg" name="email" onChange={this.handleInput}/>
                   </div>
                   <div style={{marginBottom:"0.8rem"}}>
-                    <Input placeholder="Password" size="lg" />
+                    <Input  placeholder="Password" size="lg" name="password" onChange={this.handleInput}/>
                   </div>
                 </InputGroup>
                 <div className="login-button">
                   <div>Forgot Password ?</div>
-                  <Button color="danger" onClick={handleChange}>
+                  <Button color="danger" onClick={() => {handleChange();this.setPath()}}>
                     Login
                   </Button>
                 </div>
@@ -49,16 +61,16 @@ class LoginPage extends Component {
                 <h2 style={{marginBottom:"0.5rem"}} className="text-danger">Create Account</h2>
                 <InputGroup>
                   <div style={{marginBottom:"0.8rem"}}>
-                    <Input placeholder="Name" size="lg" />
+                    <Input placeholder="Name" size="lg" name="name" onChange={this.handleInput}/>
                   </div>
                   <div style={{marginBottom:"0.8rem"}}>
-                    <Input placeholder="Email" size="lg" />
+                    <Input placeholder="Email" size="lg" name="email" onChange={this.handleInput}/>
                   </div>
                   <div style={{marginBottom:"0.8rem"}}>
-                    <Input placeholder="Password" size="lg" />
+                    <Input placeholder="Password" size="lg" name="password" onChange={this.handleInput}/>
                   </div>
                   <div style={{marginBottom:"0.8rem"}}>
-                    <Input placeholder="Confirm Password" size="lg" />
+                    <Input placeholder="Confirm Password" size="lg" name="confirmpassword" onChange={this.handleInput}/>
                   </div>
                 </InputGroup>
                 <div className="login-button">
