@@ -1,22 +1,21 @@
-import {compose} from 'redux'
-import React from 'react'
-import Write from './Write'
-import Card from './Card';
-import UserCard from './UserCard';
-import {firestoreConnect} from 'react-redux-firebase'
-import { connect } from 'react-redux'
+import { compose } from "redux";
+import React from "react";
+import Write from "./Write";
+import Card from "./Card";
+import UserCard from "./UserCard";
+import { firestoreConnect } from "react-redux-firebase";
+import { connect } from "react-redux";
 
 const Feed = (props) => {
-    const {post} = props;
-    return (
-        <div className="feed_new">
-            <Write />
-            {post.map((item) => <Card data={item}/>)}
-            {/* 
-            <UserCard/> */}
-        </div>
-    )
-}
+  const { xpost } = props;
+  return (
+    <div className="feed_new">
+      <Write />
+      
+     { xpost.map((item) => <Card data={item}/>)}
+    </div>
+  );
+};
 
 // const mapStateToProps = (state) => {
 //     return {
@@ -24,8 +23,7 @@ const Feed = (props) => {
 //     }
 // }
 
-
-// export default compose( 
+// export default compose(
 //     connect(mapStateToProps),
 //     firestoreConnect([
 //         {
@@ -34,8 +32,8 @@ const Feed = (props) => {
 //     ])
 // )(Feed)
 const mapStateToProps = (state) => {
-    return {
-        post: state.user.post
-    }
-}
-export default connect(mapStateToProps,null)(Feed)
+  return {
+    xpost: state.user.xpost,
+  };
+};
+export default connect(mapStateToProps, null)(Feed);

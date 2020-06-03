@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "reactstrap";
+import {connect} from "react-redux"
+import {follow_user} from "../actions/index"
 
 const UserCard = (props) => {
   const [active, setActive] = useState(false);
@@ -13,8 +15,8 @@ const UserCard = (props) => {
       setFollowing("Follow");
       setActive(false);
     }
+    props.follow_user();
   };
-  console.log(props)
   const { name,following} = props.data;
   return (
     <div className="card_new">
@@ -27,8 +29,9 @@ const UserCard = (props) => {
             props.page === "profile" ? "card-name-profile" : "card-name"
           }
         >
-          <div>
+          <div style={{display:"flex",flexDirection:"column"}}>
         {props.page === "user" && <span><strong>{name}</strong></span>}
+        {props.page === "user" && <span>3 posts</span>}
         {props.page !== "user" && <h3>{name}</h3>}
           </div>
           {props.page === "profile" && (
@@ -51,4 +54,9 @@ const UserCard = (props) => {
   );
 };
 
-export default UserCard;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    follow_user:() => dispatch(follow_user()),
+  }
+}
+export default connect(null,mapDispatchToProps)(UserCard);

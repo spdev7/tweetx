@@ -1,6 +1,7 @@
 import React from "react";
 
 const Card = (props) => {
+  console.log('sdfas')
   console.log(props)
   const {name,tweet,time} = props.data
 

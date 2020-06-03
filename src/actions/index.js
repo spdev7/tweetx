@@ -25,3 +25,9 @@ export const add_post = (tweet) => {
           });
     }
 }
+
+export const follow_user = () => {
+    return {
+        type:"FOLLOW_USER"
+    }
+}
