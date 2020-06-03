@@ -98,6 +98,7 @@ const userReducer = (state = initialState, action) => {
         ...newState.xpost,
         h1
       ]
+      return newState;
     default:
       return newState;
   }

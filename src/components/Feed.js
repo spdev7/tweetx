@@ -12,11 +12,9 @@ const Feed = (props) => {
   return (
     <div className="feed_new">
       <Write />
+    
       {
-        console.log(xpost.length == 0 || xpost[xpost.length-1] == null)
-      }
-      {
-        xpost.length == 0 || xpost[xpost.length-1] == null && (<div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column "}}>
+      xpost.length == 0 &&  (<div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column "}}>
           <div><h4 style={{color:"grey"}}>Follow some user</h4></div>
           <div><h3 style={{color:"#e83e8c"}}>0 Posts</h3></div>
         </div>)
